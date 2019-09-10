@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html id="mobile" lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="user-scalable=no, maximum-scale=1.0, minimum-scale=1.0, width=device-width, initial-scale=1.0" />
+	<meta name="autocomplete" content="off" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="no" />
+	<meta name="apple-touch-fullscreen" content="YES" />
+	<meta name="keyword" content="Blade &amp; Soul" />
+
+	
+	<meta name="type" content="Websites:article"/>
+	<meta name="site_name" content="Blade &amp; Soul"/>
+	<title>似朝云叆叇</title>
+	<link rel="stylesheet" type="text/css" href="./1_files/layout_M_ver1.css?v=1304291402a" media="screen" />
+	<link rel="stylesheet" type="text/css" href="./1_files/world_ver1.css?v=1212050723d" media="screen" />
+	<link rel="shortcut icon"type="image/x-icon"  href="./1_files/home_icon.png?v=20120523" />
+	<link rel="icon"type="image/x-icon"  href="./1_files/home_icon.png?v=20120523" />
+	<link rel="apple-touch-icon"type="image/x-icon"  href="./1_files/home_icon_x2.png?v=20120523" />
+	<!--[if lt IE 9]><script type="text/javascript" src="http://static.plaync.co.kr/common/js/lib/html5.js"></script><![endif]-->
+	<script type="text/javascript" src="./1_files/jquery_171_min1.js"></script>
+	<script type="text/javascript" src="./1_files/jquery.lazyload.min.js"></script>
+	<script type="text/javascript" src="./1_files/jquery.touchSlider_v2.js"></script>
+
+	<script type="text/javascript" src="./1_files/layout_M_v2.js?v=12121211341031"></script>
+	<script type="text/javascript" src="./1_files/bns.js?v=1209121000"></script>
+	<script type="text/javascript" src="./1_files/bns.web.site.js?v=5"></script>
+	<script src="./1_files/uaredirect.js" type="text/javascript"></script>
+
+    <script type="text/javascript">uaredirect("./mobile.html","./index.html");</script>
+	
+	<meta charset="utf-8" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expries" content="0" />
+	<!--<script type="text/javascript" src="./1_files/ImageEditorPluginV0.8.3.js"></script>-->
+	<script type="text/javascript" src="./1_files/bns.game.item.v2.js?v=20190116"></script>
+</head>
+<body id="MobileNoob">
+
+
+
+<script language="javascript" type="text/javascript">
+		//<![CDATA[
+			var isLoginFlag = "N";
+			var isIpinFlag = "N";
+			var loginLinkURL = "GNBLogin()";
+
+			// 장기 로그인 유지 설정이 있는 경우
+			if (document.cookie.length > 0 && document.cookie.indexOf("DEF_KEEP_LOGIN=true") >= 0) {
+				GNBLoginRefresh();
+			}
+		//]]>
+		</script>
+	<div id="wrap_container">
+	<!-- (s) body area -->
+	<section id="container" class="container">
+		
+		
+		<div id="contents">
+			
+	<!-- (s) 개인 영역 -->
+	
+	<!-- (s) 카테고리 -->
+	<!-- 카테고리 -->
+<!-- 소환수 여부 -->
+<!-- 내캐릭터여부 -->
+
+
+
+
+<script type="text/javascript">
+//flicking menu
+var view = 4,
+	
+			pageName = ['world_character', 'world_character_summoner'];
+	
+
+	function setSelectTab(idx){
+		if(!idx) idx = 0;
+		$("#subMenu li").each(function(i, node){
+			(idx === i)?
+				$(this).addClass('select'):
+				$(this).removeClass('select');
+		});
+	};
+
+	function selectSubMenuByName(name){
+		var idx = 0;
+		for(var i = 0, len = pageName.length; len > i; i++){
+			if (name == pageName[i]) {
+				idx = i;
+				setSelectTab(idx);
+				break;
+			}
+		}
+
+		if(view <= idx){
+			for(var i = 0, len = Math.floor(idx / view); len > i; i++){
+				$(".subMenu-next").trigger('click');
+			}
+		}
+	};
+
+	var slider = $("#subMenu").touchSlider({
+		roll: false,
+		flexible : true,
+		btn_next: $(".subMenu-next"),
+		btn_prev: $(".subMenu-prev"),
+		pagination: ".touchslider-nav-item",
+		view: view,
+		resizeAfterAnimate: true,
+		counter: function(e){
+			$(".subMenu-prev").show();
+			$(".subMenu-next").show();
+
+			$('#subMenuWrap').removeClass('subFlicking0 subFlicking1 subFlicking2 subFlicking3');
+
+			if (jQuery('#subMenu li').length == view || jQuery('#subMenu li').length < view) {
+				$('.subMenu-prev').hide();
+				$('.subMenu-next').hide();
+				$('#subMenuWrap').addClass('subFlicking0');
+			}else if (e.current === 1) {
+				$('.subMenu-prev').hide();
+				$('#subMenuWrap').addClass('subFlicking1');
+			}else if (e.current === e.total) {
+				$('.subMenu-next').hide();
+				$('#subMenuWrap').addClass('subFlicking3');
+			}else{
+				$('#subMenuWrap').addClass('subFlicking2');
+			}
+
+			$('#subMenu li').each(function(i){
+				if((i + 1) % view === 0 && i !== 0)
+					$('#subMenu li:nth-child('+(i + 1)+')').css("background-image","none");
+			});
+		}
+	});
+
+	$("#subMenu li").live({
+		click : function(e){
+			var idx = $("#subMenu li").index($(this));
+			setSelectTab(idx);
+		}
+	});
+
+$('document').ready(function(){
+	selectSubMenuByName('world_character_info');
+});
+</script><!-- (e) 카테고리 -->
+	<div class="characterInfo">
+	<h2 class="info-title on">
+		装备 <div class="title-icon"><span>关闭</span></div>
+	</h2>
+	<div class="info-box on"><div class="items">
+<!-- (s) 장비 -->
+<div id="items" class="item1">
+	<ul>
+	<colgroup><col width="42" /><col width="*" /></colgroup>
+		<li id="weapon-hand">
+			<li id="weapon-hand">
+				<div class="icon"><p class="thumb"><img src="./1_files/Weapon_ST_060307_col2.png" alt="诸天法杖14段" title="诸天法杖14段" class="iconImg"></p></div>
+			<div class="name"><span class="grade_7">诸天法杖14段</span></div>
+			</li>
+		</li>
+		<li id="accessory-finger_left">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_ring_ChunMu_Aw_1-1Phase.png" alt="极限卓越天目戒指3段" title="极限卓越天目戒指3段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">极限卓越天目戒指3段</span></div>
+		</li>
+		<li id="accessory-ear_left">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Earring_Legendry_Aw_9-1Phase.png" alt="极限卓越邪花耳环3段" title="极限卓越邪花耳环3段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">极限卓越邪花耳环3段</span></div>
+		</li>
+		<li id="accessory-neck">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Necklace_Legendry_No_9-1Phase.png" alt="邪花项链10段" title="邪花项链10段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">邪花项链10段</span></div>
+		</li>
+		<li id="accessory-bracelet">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Bangle_Legendry_7-1Phase.png" alt="光火手镯12段" title="光火手镯12段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">光火手镯12段</span></div>
+		</li>
+		<li id="accessory-belt">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Belt_Legendry_6-1Phase.png" alt="狂天腰带6段" title="狂天腰带6段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">狂天腰带6段</span></div>
+		</li>
+		<li id="accessory-gloves">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Gloves_Legend_3-1Phase.png" alt="天佑手套8段" title="天佑手套8段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">天佑手套8段</span></div>
+		</li>
+		<li id="accessory-soul">
+			<div class="icon"><p class="thumb"><img src="./1_files/GB_Grocery_Accessory_Weaponsoul12.png" alt="苦痛之梦幻魂15段" title="苦痛之梦幻魂15段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">苦痛之梦幻魂15段</span></div>
+		</li>
+		<li id="accessory-soul_2">
+			<div class="icon"><p class="thumb"><img src="./1_files/GB_Grocery_Accessory_soul2_03.png" alt="觉醒凤凰魂9段" title="觉醒凤凰魂9段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">觉醒凤凰灵9段</span></div>
+		</li>
+		<li id="weapon-pet">
+			<div class="icon"><p class="thumb"><img src="./1_files/Pet_NONE_MoonSwingEvolve_col1.png" alt="青天守护石1段" title="青天守护石1段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">青天守护石1段</span></div>
+		</li>
+		<li id="accessory-nova">
+			<div class="icon"><p class="thumb"><img src="./1_files/Grocery_Accessory_nova_12.png" alt="雷神星15段" title="雷神星15段" class="iconImg"></p></div>
+			<div class="name"><span class="grade_7">雷神星15段</span></div>
+		</li>
+		<li id="accessory-soul_badge">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Rune_Variation_2-13Phase.png" alt="觉醒武天神功牌8段" title="觉醒武天神功牌8段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">觉醒武天神功牌8段</span></div>
+		</li>
+		<li id="accessory-swift_badge">
+			<div class="icon"><p class="thumb"><img src="./1_files/Acc_Emblem_Variation_3-1Phase.png" alt="觉醒邪花秘功牌8段" title="觉醒邪花秘功牌8段" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">觉醒邪花秘功牌8段</span></div>
+		</li>
+		<li id="costume-body">
+			<div class="icon"><p class="thumb"><img src="./1_files/Costume_10231_JinM_col1.png" alt="广寒仙宫" title="广寒仙宫" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">广寒仙宫</span></div>
+		</li>
+		<li id="accessory-body_accessory">
+			<div class="icon"><p class="thumb"><img src="./1_files/Attach_090205_JinM_col1.png" alt="广寒背饰" title="广寒背饰" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">广寒背饰</span></div>
+		</li>
+		<li id="accessory-head">
+			<div class="icon"><p class="thumb"><img src="./1_files/Attach_040397_JinM_col1.png" alt="广寒头饰" title="广寒头饰" class="iconImg"></p></div>
+				<div class="name"><span class="grade_7">广寒头饰</span></div>
+		</li>
+		<li id="accessory-eye">
+			<div class="icon"><p class="thumb"><img src="./1_files/Attach_010163_JinM_col1.png" alt="广寒耳环" title="广寒耳环" class="iconImg"></p></div>
+			<div class="name"><span class="grade_7">广寒耳环</span></div>
+		</li>
+	</ul>
+</div>
+<!-- (e) 장비 -->
+</div></div>
+	<h2 class="info-title">
+		八卦 <div class="title-icon"><span>关闭</span></div>
+	</h2>
+	<div class="info-box"><div class="items">
+<!-- (s) 보패 -->
+<div id="charms" class="item2">
+	<div class="gemIcon">
+		<span class="pos1"><img src="./1_files/equipgem_legendst10_extra_pos1.png"></span><span class="pos2"><img src="./1_files/equipgem_legendst10_extra_pos2.png"></span>
+		<span class="pos3"><img src="./1_files/equipgem_legendst10_extra_pos3.png"></span><span class="pos4"><img src="./1_files/equipgem_legendst10_extra_pos4.png"></span>
+		<span class="pos5"><img src="./1_files/equipgem_legendst10_extra_pos5.png"></span><span class="pos6"><img src="./1_files/equipgem_legendst10_extra_pos6.png"></span>
+		<span class="pos7"><img src="./1_files/equipgem_legendst10_extra_pos7.png"></span><span class="pos8"><img src="./1_files/equipgem_legendst10_extra_pos8.png"></span>
+		
+		<img src="" alt="" class="pos" usemap="#gemIcon_pos">
+		<map name="gemIcon_pos" class="mapsPos">
+		
+			<area shape="poly" class="itemLink" coords="54,2,130,2,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_1&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388334441545&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="130,2,182,55,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_2&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388382326414&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="182,55,182,130,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_3&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388382656236&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="182,130,131,182,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_4&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388318711175&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="131,182,53,182,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_5&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388410744830&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="53,182,2,130,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_6&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388400204803&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="2,130,2,53,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_7&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388395176893&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+			<area shape="poly" class="itemLink" coords="2,53,54,2,91,91" data="{&quot;item&quot;:&quot;profile-soulshield_8&quot;, &quot;equipinfo&quot;:&quot;equipped-amulet-1407388343672457&quot;, &quot;set&quot;:&quot;set-&quot;}" alt="광운보패" title="광운보패">
+		</map>
+	</div>
+
+		<div id="charmEffect">
+			<div class="lyCharmEffect">
+				<h3><strong>套装效果</strong> </h3>
+				<p class="description"><strong>永生的誓约</strong></p>
+				<p class="setEffect" id="effect_1">
+					
+					<strong>3件套</strong>&nbsp; 花粉，蜜蜂 冷却时间减少20%<br>&nbsp;  马蜂，真·马蜂 伤害增加55%<br>
+					<strong>5件套</strong>&nbsp; 攻击力25，暴击伤害增加24%<br>&nbsp;  黄金蜂 伤害增加120%<br>
+					<strong>8件套</strong>&nbsp; 板栗球，飞栗球，牵牛花 冷却时间减少30%<br>&nbsp;  板栗球，飞栗球，爆栗，牵牛花 伤害增加200%<br>&nbsp;  荆棘藤 伤害增加150%<br>&nbsp;  花粉，蜜蜂 冷却时间减少15%<br>
+					</p>	
+			<p class="description"><strong>冥幻派之仙法</strong></p>
+			<p class="setEffect" id="effect_0">
+				
+				<strong>3件套</strong>&nbsp; 狗尾草 冷却时间10%减少<br>&nbsp; 板栗球，飞栗球，爆栗 伤害40%增加<br>&nbsp; 疯狂生长，荆棘藤 冷却时间15%减少<br>&nbsp; 疯狂生长，荆棘藤 伤害45%增加<br>&nbsp; 牵牛花 伤害60%增加<br>
+				<strong>5件套</strong>&nbsp; 防御增加611，生命增加26,600<br>&nbsp; 遭受攻击时，发动10次英杰效果<br>&nbsp; 在5秒内未受到攻击时，英杰效果初始化<br>&nbsp; 耗尽10次英杰效果时，应用35秒冷却时间<br>
+				<strong>8件套</strong>&nbsp; 狗尾草 冷却时间15%减少<br>&nbsp; 板栗球，飞栗球，爆栗 伤害45%增加<br>&nbsp; 疯狂生长，荆棘藤 冷却时间15%减少<br>&nbsp; 疯狂生长，荆棘藤 伤害45%增加<br>&nbsp; 牵牛花 伤害60%增加<br></p>
+			</div>
+		</div>
+</div>
+<!-- (e) 보패 -->
+</div></div>
+	<h2 class="info-title">
+		攻击 <div class="title-icon"><span>关闭</span></div>
+	</h2>
+	<div class="info-box"><div class="me-stat">
+<!-- (s) 공격 -->
+<div class="attack">
+	<div class="stat-box">
+		<div class="split-point">
+			<span class="split">攻击点数</span>
+			<span class="stat-point">
+				<span class="point attak_total"><em id="point-offense_point">130P</em></span><span class="point effect-1 disabed"><em id="point-point_pick1">0P</em></span><span class="point effect-4 disabed"><em id="point-point_pick4">25P</em></span></span>
+		</div>
+		<!--(s)layer-->
+		<div class="lySplit">
+			<h3>攻击点数</h3>
+			<a href="#" class="btnClose">关闭</a>
+			<ul class="split-list">
+				<li>
+					<span class="icon-split attack1"></span>攻击
+					<span class="point" id="point-attack_power_value">130</span>
+				</li>
+				<li>
+					<span class="icon-split attack2"></span>功力
+					<span class="point" id="point-attack_attribute_value">260</span>
+				</li>
+			</ul>
+			<div id="bonus-offense" class="split-bonus">
+				<h4>追加效果</h4>
+					<ul class="split-bonus-list"><li class=""><span class="bonus">10</span> 攻击力增加 60, 攻力增加 60</li><li class=""><span class="bonus">20</span> 攻击力增加 40, 攻力增加 50</li><li class=""><span class="bonus">50</span> 抵抗时，在5秒内攻击力增加 100</li><li class=""><span class="bonus">80</span> 攻击力增加 30, 攻力增加 40</li><li class=""><span class="bonus">100</span> 抵抗后5秒内攻力增加 150</li><li class=""><span class="bonus">115</span> 攻击力增加 20, 攻力增加 30</li><li class=""><span class="bonus">125</span> 攻击力增加 15, 攻力增加 20</li><li class="disabled"><span class="bonus">135</span> 攻击力增加 10, 攻力增加 15</li><li class="disabled"><span class="bonus">150</span> 抵抗后5秒内攻击力增加 50, 功力增加 75</li></ul>
+				</div>
+				<div id="effect-attack" class="split-select" style="">
+					<h3>选择效果</h3>
+					<ul class="split-select-list"><li><strong class="name effect-4">洪门之气 5阶段</strong><p class="text">命中时洪门之气恢复2500<br>命中后10秒内降魔攻击力增加250<br>冷却时间30秒</p></li></ul>
+		</div>
+		</div>
+		<!--(e)layer-->
+	</div>
+	<dl class="stat-define">
+			<dt class="stat-title">
+					攻击<span class="stat-point" id="total-int_attack_power_value">2458</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_attack_power_value">632</span></li>
+						<li>装备<span class="stat-point" id="equip-int_attack_power_value">1826</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					PVP攻击力<span class="stat-point" id="total-pc_attack_power_value">2466</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-pc_attack_power_value">2466</span></li>
+						<li>装备<span class="stat-point" id="equip-pc_attack_power_value">0</span></li>
+					</ul>
+				</dd>
+				<dt class="stat-title">
+					降魔攻击力<span class="stat-point" id="total-boss_attack_power_value">2734</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-boss_attack_power_value">2462</span></li>
+						<li>装备<span class="stat-point" id="equip-boss_attack_power_value">272</span></li>
+					</ul>
+				</dd>
+	
+	
+				<dt class="stat-title">
+					穿刺<span class="stat-point" id="total-int_attack_pierce_value">5715</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_attack_pierce_value">0</span></li>
+						<li>装备<span class="stat-point" id="equip-int_attack_pierce_value">5715</span></li>
+						<li>防御 穿刺<span class="stat-point" id="total-attack_defend_pierce_rate">33.55%</span></li>
+						<li>格挡 穿刺<span class="stat-point" id="total-attack_parry_pierce_rate">20.41%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					命中<span class="stat-point" id="total-int_attack_hit_value">5265</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_attack_hit_value">696</span></li>
+						<li>装备<span class="stat-point" id="equip-int_attack_hit_value">4569</span></li>
+						<li>命中率<span class="stat-point" id="total-attack_hit_rate">129.55%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					集中<span class="stat-point" id="total-int_attack_concentrate_value">0</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_attack_concentrate_value">0</span></li>
+						<li>装备<span class="stat-point" id="equip-int_attack_concentrate_value">0</span></li>
+						<li>格挡武功 穿刺率<span class="stat-point" id="total-attack_perfect_parry_damage_rate">0%</span></li>
+						<li>反击武功 穿刺率<span class="stat-point" id="total-attack_counter_damage_rate">0%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					暴击<span class="stat-point" id="total-int_attack_critical_value">13928</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_attack_critical_value">1599</span></li>
+						<li>装备<span class="stat-point" id="equip-int_attack_critical_value">12329</span></li>
+						<li>暴击率<span class="stat-point" id="total-attack_critical_rate">61.79%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					暴击伤害<span class="stat-point" id="total-attack_critical_damage_value">11440</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-attack_critical_damage_value">1070</span></li>
+						<li>装备<span class="stat-point" id="equip-attack_critical_damage_value">10370</span></li>
+						<li>提升伤害率<span class="stat-point" id="total-attack_critical_damage_rate">332.58%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title empty">
+					熟练<span class="stat-point" id="total-int_attack_stiff_duration_level">0段</span>
+				</dt>
+				<dd class="stat-description">
+				</dd>
+	
+				<dt class="stat-title">
+					额外伤害<span class="stat-point" id="total-int_attack_damage_modify_diff">115</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>提升伤害率<span class="stat-point" id="total-attack_damage_modify_rate">0%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					嘲讽值<span class="stat-point" id="total-hate_power_rate">100%</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_hate_power_value">0</span></li>
+						<li>装备<span class="stat-point" id="equip-int_hate_power_value">0</span></li>
+						<li>仇恨率<span class="stat-point" id="total-hate_power_rate">100%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					状态异常伤害<span class="stat-point" id="total-abnormal_attack_power_value">100</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-abnormal_attack_power_value">100</span></li>
+						<li>装备<span class="stat-point" id="equip-abnormal_attack_power_value">0</span></li>
+						<li>提升伤害率<span class="stat-point" id="total-abnormal_attack_power_rate">102.27%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					功力<span class="stat-point" id="total-attack_attribute_value">5677</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-attack_attribute_value">967</span></li>
+						<li>装备<span class="stat-point" id="equip-attack_attribute_value">4710</span></li>
+						<li>功力伤害率<span class="stat-point" id="total-attack_attribute_rate">193.44%</span></li>
+					</ul>
+				</dd>
+			</dl>
+</div>
+<!-- (e) 공격 -->
+</div>
+</div>
+	<h2 class="info-title">
+		防御 <div class="title-icon"><span>关闭</span></div>
+	</h2>
+	<div class="info-box"><div class="me-stat">
+<!-- (s) 방어 -->
+<div class="defense">
+
+	<div class="stat-box">
+		<div class="split-point">
+			<span class="split">防御点数</span>
+			<span class="stat-point">
+				<span class="point defense_total"><em id="point-defense_point">0P</em></span>
+				<span class="point effect-2 disabed"><em id="point-point_pick2">0P</em></span><span class="point effect-3 disabed"><em id="point-point_pick3">0P</em></span><span class="point effect-5 disabed"><em id="point-point_pick5">0P</em></span></span>
+		</div>
+		<!--(s)layer-->
+		<div class="lySplit">
+			<h3>追加效果 </h3>
+			<a href="#" class="btnClose">关闭</a>
+			<ul class="split-list">
+				<li>
+					<span class="icon-split defense1"></span>生命
+					<span class="point" id="point-max_hp">0</span>
+				</li>
+				<li>
+					<span class="icon-split defense2"></span>防御
+					<span class="point" id="point-defend_power_value">0</span>
+				</li>
+			</ul>
+			<div id="bonus-defense" class="split-bonus">
+				<h4>选择效果</h4>
+				<ul class="split-bonus-list"></ul>
+			</div>
+			<div id="effect-defense" class="split-select" style="display:none">
+				<h3>선택 효과</h3>
+				<ul class="split-select-list"></ul>
+			</div>
+		</div>
+		<!--(e)layer-->
+	</div>
+	<dl class="stat-define">
+			<dt class="stat-title">
+					生命<span class="stat-point" id="total-int_max_hp">396502</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_max_hp">93356</span></li>
+						<li>装备<span class="stat-point" id="equip-int_max_hp">303146</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					防御<span class="stat-point" id="total-int_defend_power_value">7075</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_defend_power_value">1372</span></li>
+						<li>装备<span class="stat-point" id="equip-int_defend_power_value">5703</span></li>
+						<li>防御率<span class="stat-point" id="total-defend_physical_damage_reduce_rate">38.31%</span></li>
+						<li>范围伤害防御<span class="stat-point" id="total-aoe_defend_power_value">0</span></li>
+						<li>范围伤害减免率<span class="stat-point" id="total-aoe_defend_damage_reduce_rate">0%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					PVP防御力<span class="stat-point" id="total-pc_defend_power_value">7395</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-pc_defend_power_value">7395</span></li>
+						<li>装备<span class="stat-point" id="equip-pc_defend_power_value">0</span></li>
+						<li>PVP防御率<span class="stat-point" id="total-pc_defend_power_rate">39.33%</span></li>
+						<li>范围伤害防御<span class="stat-point" id="total-aoe_defend_power_value">0</span></li>
+						<li>范围伤害减免率<span class="stat-point" id="total-aoe_defend_damage_reduce_rate">0%</span></li>
+					</ul>
+				</dd>
+				<dt class="stat-title">
+					降魔防御力<span class="stat-point" id="total-boss_defend_power_value">7285</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-boss_defend_power_value">7285</span></li>
+						<li>装备<span class="stat-point" id="equip-boss_defend_power_value">0</span></li>
+						<li>降魔防御率<span class="stat-point" id="total-boss_defend_power_rate">38.99%</span></li>
+						<li>范围伤害防御<span class="stat-point" id="total-aoe_defend_power_value">0</span></li>
+						<li>范围伤害减免率<span class="stat-point" id="total-aoe_defend_damage_reduce_rate">0%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					闪避<span class="stat-point" id="total-int_defend_dodge_value">3783</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_defend_dodge_value">546</span></li>
+						<li>装备<span class="stat-point" id="equip-int_defend_dodge_value">3237</span></li>
+						<li>闪避率<span class="stat-point" id="total-defend_dodge_rate">25.22%</span></li>
+						<li>反击武功 强化<span class="stat-point" id="total-counter_damage_reduce_rate">79.17%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					格挡<span class="stat-point" id="total-int_defend_parry_value">2344</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>基本<span class="stat-point" id="base-int_defend_parry_value">0</span></li>
+						<li>装备<span class="stat-point" id="equip-int_defend_parry_value">2344</span></li>
+						<li>伤害减免<span class="stat-point" id="total-defend_parry_reduce_rate">39.55%</span></li>
+						<li>防御武功 强化<span class="stat-point" id="total-perfect_parry_damage_reduce_rate">55.07%</span></li>
+						<li>格挡率<span class="stat-point" id="total-defend_parry_rate">29.98%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					暴击防御<span class="stat-point" id="total-int_defend_critical_value">130</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>暴击防御率<span class="stat-point" id="total-defend_critical_rate">1.56%</span></li>
+						<li>伤害减免<span class="stat-point" id="total-defend_critical_damage_rate">15.11%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title empty">
+					韧性<span class="stat-point" id="total-int_defend_stiff_duration_level">0段</span>
+				</dt>
+				<dd class="stat-description">
+				</dd>
+	
+				<dt class="stat-title">
+					伤害减免<span class="stat-point" id="total-int_defend_damage_modify_diff">100</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>伤害减免<span class="stat-point" id="total-defend_damage_modify_rate">0%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					恢复<span class="stat-point" id="total-int_hp_regen">327</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>和平状态<span class="stat-point" id="total-int_hp_regen">327</span></li>
+						<li>战斗状态<span class="stat-point" id="total-int_hp_regen_combat">1314</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					治疗<span class="stat-point" id="total-heal_power_rate">130.24%</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>治疗<span class="stat-point" id="total-int_heal_power_value">3735</span></li>
+						<li>额外治疗<span class="stat-point" id="total-int_heal_power_diff">0</span></li>
+						<li>治疗率<span class="stat-point" id="total-heal_power_rate">130.24%</span></li>
+					</ul>
+				</dd>
+	
+				<dt class="stat-title">
+					状态异常防御力<span class="stat-point" id="total-abnormal_defend_power_value">0</span>
+				</dt>
+				<dd class="stat-description">
+					<ul class="ratio">
+						<li>状态异常防御率<span class="stat-point" id="total-abnormal_defend_power_rate">0%</span></li>
+					</ul>
+				</dd>
+			</dl>
+</div>
+<!-- (e) 방어 -->
+</div>
+</div>
+
+	<!-- (s) 왼쪽영역 -->
+	<div class="bottomArea">
+			<div class="charaterView">
+					<img src="./1_files/0001.jpg">
+					</div>
+		<!--<script type="text/javascript">
+(function($) {
+	function _settingDuelInfo (charName) {
+		jQuery.ajax({
+			url : ,
+			dataType : "jsonp",
+			type : "GET",
+			xhrFields : {withCredentials:true},
+			success: function (response) {
+				var duelResult = response.duelResult;
+				var duelGrades = response.duelGrades;
+				
+				var singleWin ="0" ;
+				var singleScore="130000" ;
+				var singleGrade="bronze";
+				var singleGradeName="브론즈";
+				var tagWin="0";
+				var tagScore="130000";
+				var tagGrade="bronze";
+				var tagGradeName="브론즈";
+
+				var totalCount = 0;
+				var totalWin = 0;
+				var totalWinPercent = 0;
+
+				
+				if(duelResult != undefined && duelResult.total_win+duelResult.total_draw+duelResult.total_lose+duelResult.total_disconnect > 0){
+					for(var i = 0; i < duelResult.scores.length; i ++ ){
+						if(duelResult.scores[i].duel_type == 'one'){
+							singleWin = duelResult.scores[i].win;
+							singleScore = duelResult.scores[i].score;
+						}else if (duelResult.scores[i].duel_type == 'tag'){
+							tagWin = duelResult.scores[i].win;
+							tagScore = duelResult.scores[i].score;
+						}
+					}
+					totalCount = duelResult.total_win+duelResult.total_draw+duelResult.total_lose+duelResult.total_disconnect;
+					totalWin = duelResult.total_win;
+					
+					if(duelResult.total_win_percent > 0)
+						totalWinPercent = duelResult.total_win_percent;
+
+					for(var i = 0; i< duelGrades.length; i++){
+						if(singleScore >= duelGrades[i].min_score){
+							singleGradeName = duelGrades[i].name;
+							
+							if(singleGradeName == '브론즈') singleGrade = "bronze"
+							else if(singleGradeName == '실버') singleGrade = "silver"
+							else if(singleGradeName == '골드') singleGrade = "gold"
+							else if(singleGradeName == '플래티넘') singleGrade = "platinum"
+							else if(singleGradeName == '다이아몬드') singleGrade = "diamond"
+						}
+						if(tagScore >= duelGrades[i].min_score){
+							tagGradeName = duelGrades[i].name;
+							
+							if(tagGradeName == '브론즈') tagGrade = "bronze"
+							else if(tagGradeName == '실버') tagGrade = "silver"
+							else if(tagGradeName == '골드') tagGrade = "gold"
+							else if(tagGradeName == '플래티넘') tagGrade = "platinum"
+							else if(tagGradeName == '다이아몬드') tagGrade = "diamond"
+						}						
+					}
+				}
+				
+				$('.singleGrade').addClass(singleGrade);
+				$('.singleGradeName').html(singleGradeName);
+				$('.singleScore').html(parseInt(singleScore/100));
+				$('.singleWin').append(singleWin);
+
+				$('.tagGrade').addClass(tagGrade);
+				$('.tagGradeName').html(tagGradeName);
+				$('.tagScore').html(parseInt(tagScore/100));
+				$('.tagWin').append(tagWin);
+
+				$('.total-score').append(totalCount + "전 " + totalWin + "승 (" + totalWinPercent + "%)");
+				
+			},
+			error: function () { alert('잠시 후에 다시 이용해 주세요.'); }
+		});
+	}
+	_settingDuelInfo('원달콩');
+}(jQuery));
+</script>-->
+
+
+
+
+
+
+<script type="text/javascript">
+function showNoPhoto (element) {
+	$('.charaterView').html($(element).html());
+}
+</script>
+</div>
+	<!-- (e) 왼쪽영역 -->
+
+
+
+</div>
+
+<script type="text/javascript">
+	BnsWeb.Login.setReloadChangingCharacter(false);/* character */
+	(function($) {
+		
+		
+		BnsWeb.Game.Item.setMobile(true);
+	
+	
+		// ui 수정 161221
+		var targetWrap = $(".characterInfo");
+		targetWrap.find(".info-title").on("click", function(){
+			if ( !$(this).hasClass('on')) {
+				targetWrap.find('.info-title').removeClass('on');
+				targetWrap.find('.info-box').removeClass('on');
+				targetWrap.find('.info-title span').text('열기');
+				$(this).find('span').text('닫기');
+				$(this).addClass('on');
+				$(this).next('.info-box').addClass('on');
+	
+				var titlePos = $(this).offset().top;
+				$('html, body').stop().animate({
+					scrollTop: titlePos
+				}, 10);
+	
+			} else {
+				$(this).find('span').text('열기');
+				$(this).removeClass('on');
+				$(this).next('.info-box').removeClass('on');
+			}
+		});
+	
+		// 포인트 분배 효과 보기
+		var btnSplit = $( '.stat-box .split-point' );
+		var lySplit = $( '.stat-box .lySplit' );
+		btnSplit.click( function( e ){
+			e.preventDefault();
+			$(document.body).append('<div id=\'layer_modal\'> </div>');
+			$(this).next('.lySplit').show();
+		});
+		// 포인트 분배 효과 닫기
+		lySplit.find('.btnClose').click( function(e){
+			e.preventDefault();
+			$('#layer_modal').remove();
+			lySplit.hide();
+		});
+	
+		function showPointEffects() {
+			jQuery.ajax({
+				type:"get", url:"1", dataType:"jsonp", cache:false,
+				success: function(response) {
+					BnsWeb.Stat.showPointsEffects(response.records);
+					showAbilities();
+				}
+			});
+		}
+		
+		function showAbilities() {
+			jQuery.ajax({
+				type:"get", url:"1", dataType:"jsonp", cache:false,
+				success: function(response) {
+					if (typeof response.records != "undefined") {
+						var records = response.records;
+	
+						BnsWeb.Stat.showAbilities(records, "me");
+					}
+				}
+			});
+		}
+	
+		function showEquipments(characterName, type) {
+			jQuery.ajax({
+				type:"get", url:"1", dataType:"jsonp", cache:false,
+				success: function(response) {
+					if (typeof response.records != "undefined") {
+						var records = response.records;
+	
+						BnsWeb.Equip.displayEquipments(records, type, characterName);
+					}
+				}
+			});
+		}
+		
+		function showSetitemAbilities(characterName, type) {
+			jQuery.ajax({
+				type:"get", url:"1", dataType:"jsonp", cache:false,
+				success: function(response) {
+					if (typeof response.records != "undefined") {
+						var records = response.records;
+	
+						BnsWeb.Equip.displaySoulshieldsAbilities(records, type);
+					}
+				}
+			});		
+		}
+		
+		showPointEffects();
+		showEquipments('원달콩', '');
+		showSetitemAbilities('원달콩', '');
+	
+	}(jQuery));
+	</script>
+</div>
+		
+	</section>
+	<!-- (e) body area -->
+	<!-- (s) leftside area -->
+	<section id="sidebar"></section>
+	<!-- (e) leftside area -->
+	<!-- (s) friendlist area -->
+	<section id="friendbar"></section>
+	<!-- (e) friendlist area -->
+</div>
+<link rel="stylesheet" type="text/css" href="./1_files/skin.css" media="screen" />
+
+
+<script type="text/javascript" src="./1_files/imageViewer.min.js"></script>
+<script>
+var mobileImageViewer = null;
+var commentTarget = $('.viewInfo .comment a').attr('href');
+(function( $ ){
+
+	'use strict';
+
+	function isEmoticonImage( src ){
+		var emoticonUrl = [ 'http://static.plaync.co.kr/editor/emoticon', '/emo/' ];
+		for( var i = 0; emoticonUrl[ i ]; i++ ){
+			if( src.indexOf( emoticonUrl[ i ] ) !== -1 ) return true;
+		}
+
+		return false;
+	}
+
+	function replaceOrigin( src ){
+		var origin = src.replace('/download_mobile/', '/download/');
+
+		return origin;
+	}
+
+	function popView( src ){
+
+		if( isEmoticonImage( src ) ) return;
+
+		//이미지 뷰어 생성
+		if( !mobileImageViewer ){
+			var arr = [];
+
+			$( '.editorAttachedImage:not(".gdict_contents>.editorAttachedImage")' ).each( function(){
+				var _src = $( this ).attr( 'src' );
+
+				if( _src.indexOf('/download_mobile/') != -1 ){
+					_src = replaceOrigin( _src );
+				}
+
+				if( !isEmoticonImage( _src ) ) arr.push( _src );
+			});
+
+			mobileImageViewer = new nc.ui.ImageViewer( $( 'body' ), arr, {
+				commentUrl: commentTarget
+			});
+		}
+
+		src = replaceOrigin(src);
+
+		mobileImageViewer.slideByUrl( src );
+	};
+
+	//dom contents loaded
+	$(function(){
+
+		//<img>에 editorAttachedImage class 추가(게임딕은 제외)
+		$( '.viewArticle img:not(".gdict_contents>img")' ).each( function(){
+			$( this ).addClass( 'editorAttachedImage' );
+		});
+
+		//이미지 클릭 이벤트
+		$( '.editorAttachedImage' ).click( function( evt ){
+			evt.preventDefault();
+
+			popView( $( this ).attr( 'src' ) );
+		});
+	});
+}( jQuery ));
+
+</script>
+<script>
+ (function($){
+
+	var btnSplit = $( '.stat-box .split-point' );
+	var lySplit = $( '.lySplit' );
+	btnSplit.click( function( e ){
+		e.preventDefault();
+		$(document.body).append('<div id=\'layer_modal\'> </div>');
+		$(this).next('.lySplit').show();
+	});
+	// 포인트 분배 효과 닫기
+	lySplit.find('.btnClose').click( function(e){
+		e.preventDefault();
+		$('#layer_modal').remove();
+		lySplit.hide();
+	});
+ })
+</script>
+<div id="appLinkDiv"></div>
+</body>
+</html>
